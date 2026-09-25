@@ -1,0 +1,11 @@
+{
+    "name": "Sistema Gefina",
+    "version": "0.0.0",
+    "description": "Sistema de gestão de contas a receber",
+    "author": "João Carmélio",
+    "type": "module",
+    "scripts": {
+        "dev" : "node --watch ./serve.ts"
+    }
+
+}
