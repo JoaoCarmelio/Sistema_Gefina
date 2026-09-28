@@ -5,7 +5,10 @@
     "author": "João Carmélio",
     "type": "module",
     "scripts": {
-        "dev" : "node --watch ./serve.ts"
+        "dev": "node --watch ./serve.ts"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.3",
+        "typescript": "^7.0.2"
     }
-
 }
