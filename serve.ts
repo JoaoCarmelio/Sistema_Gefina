@@ -1,16 +1,18 @@
 import {createServer} from 'node:http';
+import send from './send.ts';
+
 
 const serveStatus = {status: 'ok'}
 const serveStatusJSON = JSON.stringify(serveStatus);
 
 createServer(function (request, response) {
     if(request.url !== '/api/statusSaude') {
-        response.writeHead(404, {'content-type' : 'application/json'});
-        response.end(JSON.stringify({message: 'Recurso não encontrado!'}))
+        send(response, 404, {message: 'Recurso não encontrado'});
         return;
+        
     }
-    response.writeHead(200, {'content-type': 'application/json' });
-    response.end(serveStatusJSON);
+
+    send(response, 200, {status: 'ok'});
     
     
 
