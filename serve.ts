@@ -1,6 +1,4 @@
 import express, { response } from 'express';
-import { error } from 'node:console';
-import { IncomingMessage } from 'node:http';
 import invoices from './invoice.router.ts';
 
 
@@ -19,8 +17,11 @@ app.use('/api/invoices', invoices);
 
 
 
-app.use((request, response) {
-    response.status(404).json({message: 'Recurso não encontrado.'});
+app.use(function (request, response) {
+  response.status(404).json({message: 'Recurso não encontrado.'});
+}) 
+    
 
-}).listen(3000);
+
+app.listen(3000)
 
