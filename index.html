@@ -6,30 +6,9 @@
 <head>
     <meta charset="utf-8">
     <title>Gefina - Faturas</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <style>
-        table {
-            background-color: rgb(193, 193, 193);
-            border:none;
-            text-align: center;
-            padding: 10px;
-
-
-        }
-
-        tr{
-            background-color: rgba(255, 0, 0, 0.414);
-            
-        }
-
-        th {
-            padding: 5px;
-        }
-
-        td {
-            padding: 10px;
-        }
-    </style>
+   
 
 </head>
 
@@ -37,33 +16,41 @@
 
     <h1>Faturas</h1>
 
-    <table border="1px" >
-        <thead>
-            <tr>
-                <th>
-                    Cliente
-                </th>
-                <th>
-                    Valor
-                </th>
-                <th>
-                    Data de emissao
-                </th>
-                <th>
-                    Data de vencimento
-                </th>
-                <th>
-                    Status
-                </th>
-            </tr>
-        </thead>
+    <div>
 
-        <tbody>
+    </div>
 
-        </tbody>
-</table>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js">
 
-    </table>
+    </script>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js">
+
+    </script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+
+    </script>
+
+
+    <script type="text/babel">
+        const root = document.querySelector('div');
+
+        const title = <h1>React Course</h1>;
+        const paragrafo = <p>Estou aprendendo react</p>
+
+        ReactDOM.createRoot(root).render (
+             <>
+          {title}
+          {paragrafo}
+          </>
+          
+        )
+        
+        
+
+
+    </script>
 
     <script>
  
