@@ -1,34 +1,27 @@
-//gerenciamento de rotas 
-import { DefaultDeserializer } from "node:v8";
-import invoices from "./invoices.data.ts";
-import { Router } from "express";
+//gerenciamento de rotas
+import { DefaultDeserializer } from 'node:v8';
+import { Router } from 'express';
+import invoices from './invoices.data.ts';
 
 const router = Router();
 
-
-
-
-
-
-router.get('/api/invoices', function(request, response) {
-    response.status(200).json(invoices)
-    
-})
+router.get('/api/invoices', (_request, response) => {
+  response.status(200).json(invoices);
+});
 
 router.get('/api/invoices/:id', (request, response) => {
-  const id =  +request.params.id;
+  const id = +request.params.id;
 
   for (let i = 0; i < invoices.length; i++) {
-
-    if(invoices[i].id == id) {
+    if (invoices[i].id === id) {
       response.status(200).json(invoices[i]);
       return;
     }
-
   }
 
-    response.status(404).json({error:{message: 'Fatura não encontrada'}});
-    
+  response
+    .status(404)
+    .json({ error: { message: 'Fatura não encontrada' } });
 });
 
-export default router
+export default router;
