@@ -8,6 +8,36 @@
     <title>Gefina - Faturas</title>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+    <style>
+        table {
+            border: none;
+            text-align: center;
+            padding: 10px;
+
+
+        }
+
+        tr{
+    
+            background-color: rgba(255, 0, 0, 0.34);
+            
+            
+        }
+
+        th {
+            padding: 5px;
+            background-color: red;
+            
+        }
+
+        td {
+            padding: 10px;
+           
+        }
+
+      
+    </style>
+
    
 
 </head>
@@ -36,16 +66,86 @@
     <script type="text/babel">
         const root = document.querySelector('div');
 
-        const title = <h1>React Course</h1>;
-        const paragrafo = <p>Estou aprendendo react</p>
 
-        ReactDOM.createRoot(root).render (
+
+       const App = (props) => {
+        const invoices = [
+            
+            {
+                id: 1,
+                amount: 125000,
+                status: 'pending',
+                issueDate: '2026-06-01',
+                dueDate: '2026-06-15',
+                customer: { id: 1, name: 'Construtora Meridiano', email: 'contato@meridiano.com.br' },
+            },
+            {
+                id: 2,
+                amount: 348000,
+                status: 'paid',
+                issueDate: '2026-05-12',
+                dueDate: '2026-06-11',
+                customer: { id: 1, name: 'Construtora Meridiano', email: 'contato@meridiano.com.br' },
+            },
+            {
+                id: 3,
+                amount: 96500,
+                status: 'pending',
+                issueDate: '2026-06-20',
+                dueDate: '2026-07-20',
+                customer: { id: 2, name: 'Gráfica Aurora', email: 'contato@graficaaurora.com.br' },
+            },
+        ];
+
+          function statusLabel(status) {
+            return status === 'paid' ? 'pago' : 'pendente';
+        }
+
+        return (
              <>
-          {title}
-          {paragrafo}
-          </>
-          
-        )
+              <table border = '5px'>
+                       <thead>
+                           <tr>
+                               <th>
+                                   Cliente
+                               </th>
+                               <th>
+                                   Valor
+                               </th>
+                               <th>
+                                   Data de emissao
+                               </th>
+                               <th>
+                                   Data de vencimento
+                               </th>
+                               <th>
+                                   Status
+                               </th>
+                           </tr>
+                       </thead>
+
+                       <tbody>
+                        {invoices.map((invoice)=> {
+                            return <tr key={invoice.id}>
+                            <td>{invoice.customer.name}</td>
+                            <td>{invoice.amount}</td>
+                            <td>{invoice.issueDate}</td>
+                            <td>{invoice.dueDate}</td>
+                            <td>{statusLabel(invoice.status)}</td>
+                            </tr>
+                        })}
+
+                       </tbody>
+                   </table>
+
+               
+            </>
+        );
+           
+        
+       };
+
+        ReactDOM.createRoot(root).render(<App myName='joao'/>)
         
         
 
