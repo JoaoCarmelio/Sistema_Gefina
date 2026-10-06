@@ -1,8 +1,8 @@
-import type {Invoice} from './invoiceTypes.ts';
+import type {invoice} from './invoiceTypes.ts';
 import statusLabel from './statusLabel.ts';
 
 interface InvoiceRowProps {
-    invoice: Invoice;
+    invoice: invoice;
 }
 
 

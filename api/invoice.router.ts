@@ -5,11 +5,11 @@ import invoices from './invoices.data.ts';
 
 const router = Router();
 
-router.get('/api/invoices', (_request, response) => {
+router.get('/', (_request, response) => {
   response.status(200).json(invoices);
 });
 
-router.get('/api/invoices/:id', (request, response) => {
+router.get('/:id', (request, response) => {
   const id = +request.params.id;
 
   for (let i = 0; i < invoices.length; i++) {

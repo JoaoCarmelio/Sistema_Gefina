@@ -3,7 +3,7 @@ import InvoiceRow from './InvoiceRow.tsx';
 
 
 interface InvoiceTableProps {
-    Invoice: Invoice[];
+        invoices: Invoice[];
 
 }
 
@@ -22,7 +22,7 @@ return <table>
     </thead>
 
     <tbody>
-        {props.Invoice.map(invoice => (
+        {props.invoices.map(invoice => (
             <InvoiceRow invoice={invoice}
             key={invoice.id}
             
