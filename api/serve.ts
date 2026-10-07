@@ -23,6 +23,10 @@ app.use((_request, response) => {
   response.status(404).json({ message: 'Recurso não encontrado.' });
 });
 
-app.listen(3000, () => {
-  console.log(`Servidor rodando em http:/localhost:3000`);
-});
+// app.listen(3000, () => {
+//   console.log(`Servidor rodando em http:/localhost:3000`);
+// })
+
+app.listen(process.env.PORT || 3000);
+
+
