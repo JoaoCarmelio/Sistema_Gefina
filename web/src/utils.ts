@@ -1,9 +1,5 @@
 import type {InvoiceSituation } from './invoiceTypes.ts';
-import {
-    situationLabel,
-    formatCurrency,
-    formatDate
-}
+
 
 export  function situationLabel(situation: InvoiceSituation) {
     switch (situation) {
