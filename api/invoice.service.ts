@@ -41,8 +41,8 @@ const baseQuery = `
       WHEN invoices.due_date < CURRENT_DATE THEN 'overdue'
       ELSE 'pending'
     END AS situation,
-    invoices.issue_date,
-    invoices.due_date,
+    invoices.issue_date::text,
+    invoices.due_date::text,
     customers.id AS customer_id,
     customers.name AS customer_name,
     customers.email AS customer_email
