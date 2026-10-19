@@ -3,6 +3,7 @@ import invoices from './invoice.router.ts';
 import path from 'node:path';
 import pool from './database.ts';
 import { stat } from 'node:fs';
+import dashboard from './dashboard.router.ts';
 
 const app = express();
 
@@ -33,7 +34,7 @@ app.get('/api/statusSaude',  async(_request, response) => {
 
   });
 
-
+app.use('/api/dashboard', dashboard)
 app.use('/api/invoices', invoices);
 
 app.use(express.static(dist));
