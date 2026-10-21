@@ -13,11 +13,11 @@ export default function InvoiceTable(props: InvoiceTableProps) {
 return <table>
     <thead>
     <tr>
-        <td>Cliente</td>
-        <td>Valor</td>
-        <td>Data de emissão</td>
-        <td>data de Vencimento</td>
-        <td>Situação</td>
+        <th>Cliente</th>
+        <th>Valor</th>
+        <th>Data de emissão</th>
+        <th>data de Vencimento</th>
+        <th>Situação</th>
     </tr>
     </thead>
 
