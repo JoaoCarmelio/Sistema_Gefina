@@ -80,13 +80,14 @@ return <>
 
 <h1>Painel Inicial</h1>
 
-<div>
+<div className='summary-cards'>
   <SummaryCardy label='Total recebido:' value={formatCurrency(dashboard?.totals.paid)} />
   <SummaryCardy label='Total pendente:' value={formatCurrency(dashboard?.totals.pending)}/>
   <SummaryCardy label='Faturas:' value={String(dashboard.totals.invoiceCount)}/>
   <SummaryCardy label='Clientes:' value={String(dashboard.totals.customerCount)}/>
 </div>
 
+<div className='summary-table'>
 <InvoiceSummaryTable
 title='Faturas recentes'
 dateLabel='Emissão'
@@ -102,7 +103,7 @@ invoices={dashboard.overdueInvoices}
 date={(invoice) => invoice.dueDate}
 
 />
-
+</div>
 </>
 
   

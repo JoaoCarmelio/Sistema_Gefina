@@ -53,17 +53,20 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 h1 {
     font-size: var(--text-xl);
     font-weight: 600;
+    margin-bottom: var(--space-6);
 }
 
 h2 {
     font-size: var(--text-lg-lg);
     font-weight: 600;
+    margin-bottom: var(--space-3);
 }
 
 th {
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text-muted);
+    text-align: center;
 
 }
 
@@ -79,9 +82,10 @@ a {
     bottom: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
-    padding: var(--space-6);
+    gap: var(--space-4);
+    padding: var(--space-1);
     background-color: var(--color-surface);
+    align-items: c;
 
    
 }
@@ -89,22 +93,87 @@ a {
 .brand {
     font-size: var(--color-surface);
     font-weight: 600;
+    padding: var(--space-4);
 }
 
 .menu ul {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1)
+    gap: var(--space-1);
+    padding: var(--space-4);
+
 }
 
 .content {
     margin-left: var(--sidebar-width);
     padding: var(--space-8);
     border: 1px solid var(--color-border);
+    text-align: center;
+    
+    
+    
 }
 
+.summary-cards {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.card {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
+    
+}
+
+.card-label {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    gap: 10px
+}
+
+.card-value {
+    font-size: var(--text-xl);
+    font-weight: 600;
+}
+
+.summary-tables {
+    display: flex;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+
+}
+
+.painel {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
+    margin-top: var(--space-6);
+
+}
+
+table {
+    width: 100%;
+}
+
+th,td {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3);
+}
 .numeric {
     font-variant-numeric: tabular-nums;
+}
+
+.numeric-date {
+    text-align: center;
+
 }
 
 .situation-paid {
