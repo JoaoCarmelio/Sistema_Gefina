@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+
 
 :root {
      --color-background: #0f1117;
@@ -28,7 +36,9 @@
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
 
-  --font-sans: 'Poppins', system-ui, sans-serif
+  --font-sans: 'Poppins', system-ui, sans-serif;
+
+  --sidebar-width: 240px;
 }
 
 body {
@@ -60,6 +70,37 @@ th {
 a {
     color: var(--color-primary);
   
+}
+
+.sidebar {
+    position: fixed;
+    width: var(--sidebar-width);
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+
+   
+}
+
+.brand {
+    font-size: var(--color-surface);
+    font-weight: 600;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1)
+}
+
+.content {
+    margin-left: var(--sidebar-width);
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
 }
 
 .numeric {

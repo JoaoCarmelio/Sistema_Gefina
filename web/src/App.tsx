@@ -9,9 +9,10 @@ import {
 
 export default function App() {
     return <BrowserRouter>
-    <aside>
+    <aside className="sidebar">
+        <header className="brand">Gefina</header>
         
-    <nav>
+    <nav className="menu">
         <ul>
             <li>
                 <Link to='/'>Painel Inicial</Link>
@@ -23,7 +24,7 @@ export default function App() {
     </nav>
   </aside>
 
-   <main>
+   <main className="content">
     <Routes>
         <Route path="/" element={<DashboardPage/>} />
 
