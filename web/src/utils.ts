@@ -26,6 +26,7 @@ export  function situationClass(situation: InvoiceSituation) {
 
 export function formatCurrency(cents: number): string {
     const formatter = new Intl.NumberFormat('pt-BR', {  
+        style:  'currency',
         currency: 'BRL'
     });
     return formatter.format(cents/100)

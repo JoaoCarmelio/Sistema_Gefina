@@ -4,26 +4,27 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    Link
+    NavLink
 } from 'react-router'
 
 export default function App() {
     return <BrowserRouter>
-    <aside>
+    <aside className="sidebar">
+        <header className="brand">Gefina</header>
         
-    <nav>
+    <nav className="menu">
         <ul>
             <li>
-                <Link to='/'>Painel Inicial</Link>
+                <NavLink to='/'>Painel Inicial</NavLink>
             </li>
             <li>
-                <Link to='/faturas'>Faturas</Link>
+                <NavLink to='/faturas'>Faturas</NavLink>
             </li>
         </ul> 
     </nav>
   </aside>
 
-   <main>
+   <main className="content">
     <Routes>
         <Route path="/" element={<DashboardPage/>} />
 
