@@ -94,6 +94,18 @@ a {
   gap: var(--space-1);
 }
 
+.menu a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-control);
+}
+
+.menu a:hover, .menu a:focus-visible, .menu a.active {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
 .content {
   margin-left: var(--sidebar-width);
   padding: var(--space-8);
