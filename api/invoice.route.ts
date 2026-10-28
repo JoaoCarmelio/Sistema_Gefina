@@ -30,7 +30,7 @@ router.get('/:id', async (request, response) => {
   if (!id) {
     response.status(400).json({ error: {
       status: 400,
-      message: 'Identificador inválido.'
+      message: 'Identificador inválido, tente novamente.'
     }});
 
     return;
