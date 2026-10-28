@@ -5,6 +5,7 @@ import dashboard from './dashboard.route.ts';
 import invoices from './invoice.route.ts';
 import handleError from './error.middleware.ts';
 import fs from 'node:fs'
+import customers from './customer.route.ts'
 
 const app = express();
 app.use(express.json());
@@ -35,6 +36,7 @@ app.get('/api/health', async (_request, response) => {
 });
 
 app.use('/api/dashboard', dashboard);
+app.use('/api/customers', customers);
 app.use('/api/invoices', invoices);
 
 app.use(express.static(dist));
