@@ -6,6 +6,9 @@ GET {{host}}/api/health
 ### Buscar métricas
 GET {{host}}/api/dashboard
 
+### Buscar opçoes de cleintes
+GET {{host}}/api/
+
 ### Buscar faturas
 GET {{host}}/api/invoices
 
