@@ -86,7 +86,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
 
         <div className='field'>
             <label htmlFor="dueDate">Vencimento</label>
-            <input id='dueDate' type="date" value={dueDate} onChange={(event) => setDueDate(event.target.value)} required />
+            <input id='dueDate' type="date" value={dueDate} min={issueDate} onChange={(event) => setDueDate(event.target.value)} required />
         </div>
 
         <div className='horizontal-fields'>

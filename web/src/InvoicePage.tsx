@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import type { Invoice } from './invoiceType.ts';
 import InvoiceTable from './InvoiceTable.tsx';
 import InvoiceForm from './InvoiceForm.tsx';
-import  {getAllInvoice, createInvoice} from './invoice.api.ts';
+import  {getAllInvoice, createInvoice, updateInvoice} from './invoice.api.ts';
 import type { CustomerOption } from './CustomerTypes.ts';
 import type { InvoiceInput } from './invoiceType.ts';
 
@@ -16,12 +16,15 @@ export default function InvoicePage() {
     const [formError, setFormError] = useState<string | null>(null); 
     const [loading, setLoading] = useState(true);
     const [dialogContent, setDialogContent] = useState(false);
+    const [target, setTarget] = useState<Invoice | null>(null);
 
     const dialogRef = useRef<HTMLDialogElement>(null)
 
-    function openModal() {
+    function openModal(invoice: Invoice | null) {
+        setTarget(invoice);
         setFormError(null);
         setDialogContent(true);
+
          dialogRef.current?.showModal();
         
     }
@@ -84,6 +87,12 @@ export default function InvoicePage() {
         setFormError(null);
 
         try {
+            if(!target) {
+                await createInvoice(datas)
+             
+            }else {
+                await updateInvoice(target.id, datas);
+            }
             await createInvoice(datas);
             closeModal();
             await refresh();
@@ -102,7 +111,7 @@ export default function InvoicePage() {
     return <>
         <header className='page-header'>
             <h1>Faturas</h1>
-            <button className='button-primary' onClick={openModal}>Nova fatura</button>
+            <button className='button-primary' onClick={() => openModal(null)}>Nova fatura</button>
         </header>
     
     
@@ -111,7 +120,8 @@ export default function InvoicePage() {
     
 
         <div className='panel'>
-            <InvoiceTable invoices={invoices} />
+            <InvoiceTable invoices={invoices}
+            edit={openModal} />
         </div>
     
 
@@ -120,8 +130,7 @@ export default function InvoicePage() {
         <dialog className='invoice-modal' ref={dialogRef} onClose={() => setDialogContent(false)}>
             {dialogContent &&  <InvoiceForm
 
-
-           invoice={null}
+           invoice={target}
            customers={customersOptions}
            error={formError}
            OnDelete={() => null}
