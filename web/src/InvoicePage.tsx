@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, use } from 'react';
 
 import type { Invoice } from './invoiceType.ts';
 import InvoiceTable from './InvoiceTable.tsx';
 import InvoiceForm from './InvoiceForm.tsx';
-import  {getAllInvoice, createInvoice, updateInvoice} from './invoice.api.ts';
+import  {getAllInvoice, createInvoice, updateInvoice, deleteInvoice} from './invoice.api.ts';
 import type { CustomerOption } from './CustomerTypes.ts';
 import type { InvoiceInput } from './invoiceType.ts';
 
@@ -17,6 +17,7 @@ export default function InvoicePage() {
     const [loading, setLoading] = useState(true);
     const [dialogContent, setDialogContent] = useState(false);
     const [target, setTarget] = useState<Invoice | null>(null);
+    const [confirmDelete, setConfirmDelete] = useState(false);
 
     const dialogRef = useRef<HTMLDialogElement>(null)
 
@@ -104,6 +105,26 @@ export default function InvoicePage() {
         
     }
 
+    async function confirm() {
+        if(!target) return;
+        setBusy(true);
+        setFormError(null);
+
+        try {
+            await deleteInvoice(target.id);
+
+            setConfirmDelete(false)
+            closeModal()
+
+            await refresh();
+
+        } catch (error) {
+            if(error instanceof Error) setFormError(error.message);
+            
+        }
+        setBusy(false);
+    }
+
     if (loading) return <p>Carregando faturas...</p>
 
     if (error) return <p>{error}</p>;
@@ -127,13 +148,18 @@ export default function InvoicePage() {
 
       
 
-        <dialog className='invoice-modal' ref={dialogRef} onClose={() => setDialogContent(false)}>
+        <dialog className='invoice-modal' ref={dialogRef} onClose={() => {setDialogContent(false);
+            setConfirmDelete(false);
+        }}>
             {dialogContent &&  <InvoiceForm
 
            invoice={target}
            customers={customersOptions}
            error={formError}
-           OnDelete={() => null}
+           OnDelete={() => setConfirmDelete(true)}
+           confirmDelete={confirmDelete}
+           setConfirmDelete={setConfirmDelete}
+           confirm={confirm}
            OnSubmit={submit}
            OnCancel={closeModal}
            busy={busy}
