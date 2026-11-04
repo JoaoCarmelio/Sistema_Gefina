@@ -8,6 +8,8 @@ import {
   removeInvoice
 } from './invoice.service.ts';
 
+import { invoiceSchema, toFieldErrors } from './invoice.schema.ts';
+
 const router = Router();
 
 function parseId(value: string): number | undefined {
@@ -49,7 +51,17 @@ router.get('/:id', async (request, response) => {
 });
 
 router.post('/', async (request, response) => {
-  const invoice = await insertInvoice(request.body);
+
+  const result = invoiceSchema.safeParse(request.body)
+  if(!result.success)
+   return response.status(400).json({
+  error: {
+    status: 400,
+    message: 'Dados invalido',
+    fields: toFieldErrors(result.error)
+
+  }})
+  const invoice = await insertInvoice(result.data);
 
   if (!invoice) response.status(404).json({
     error: {

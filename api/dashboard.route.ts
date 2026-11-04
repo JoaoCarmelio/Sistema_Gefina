@@ -1,6 +1,8 @@
 import { Router } from 'express';
 
 import findDashboard from './dashboard.service.ts';
+import type { InvoiceStatus } from './invoice.schema.ts';
+
 
 const router = Router();
 
