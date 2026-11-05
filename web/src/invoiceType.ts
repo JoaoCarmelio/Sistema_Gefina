@@ -24,3 +24,17 @@ export interface InvoiceInput {
   issueDate: string,
   dueDate: string;
 }
+
+export interface InvoiceFieldErrors {
+  customerId?: string,
+  amount?: string,
+  status?: string,
+  issuDate?: string
+  dueDate?: string,
+
+}
+
+export interface ApiFailure {
+  message: string;
+  fields: InvoiceFieldErrors; 
+}
