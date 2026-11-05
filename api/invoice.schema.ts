@@ -6,11 +6,11 @@ export type InvoiceStatus = z.infer<typeof invoiceStatusSchema>;
 
 export const invoiceSchema = z
   .object({
-    customerId: z.number().int().positive(),
-    amount: z.number().int().positive(),
+    customerId: z.number('O cliente é obrigatório.').int('O identificador do cliente deve ser um n número inteiro.').positive('O identificador do cliente deve ser maior que zero.'),
+    amount: z.number('O valor é obrigatório.').int('O valor da fatura deve ser um número inteiro.').positive('O valor da fatura deve ser maior que zero.'),
     status: invoiceStatusSchema,
-    issueDate: z.iso.date(),
-    dueDate: z.iso.date(),
+    issueDate: z.iso.date('A data de emissão deve ser uma data válida.'),
+    dueDate: z.iso.date('A data de vencimento deve ser uma data válida.'),
   })
   .refine((data) => data.dueDate >= data.issueDate, {
     error: 'A data de vencimento não pode ser anterior à data de emissão.',
