@@ -3,7 +3,8 @@
   "scripts": {
     "start": "node ./server.ts",
     "dev": "node --watch --env-file=.env ./server.ts",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
@@ -12,9 +13,11 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "@types/supertest": "^7.2.1",
     "express": "^5.2.1",
     "pg": "^8.23.1",
+    "supertest": "^7.3.1",
+    "vitest": "^4.1.12",
     "zod": "^4.6.7"
-    
   }
 }
