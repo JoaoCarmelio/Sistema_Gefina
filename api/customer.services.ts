@@ -1,4 +1,4 @@
-import pool from './database.ts';
+import prisma from './prisma.ts';
 
 
 
