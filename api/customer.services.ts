@@ -10,8 +10,14 @@ interface CustomerOption {
 
 
 export async function findCustomersOptions(): Promise<CustomerOption[]> {
-    const connect = await pool.query<CustomerOption>('SELECT id,name, email FROM customers ORDER BY name;');
-    return connect.rows;
+    return await  await prisma.customer.findMany({
+        select: {
+            id: true,
+            name: true,
+            email: true
+        },
+        orderBy: {name: 'asc'}
+    })
 
 
 

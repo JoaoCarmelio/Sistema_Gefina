@@ -32,7 +32,7 @@ router.get('/:id', async (request, response) => {
   if (!id) {
     response.status(400).json({ error: {
       status: 400,
-      message: 'Identificador inválido, tente novamente.'
+      message: 'Identificador inválido.'
     }});
 
     return;
@@ -51,24 +51,19 @@ router.get('/:id', async (request, response) => {
 });
 
 router.post('/', async (request, response) => {
+  const result = invoiceSchema.safeParse(request.body);
 
-  const result = invoiceSchema.safeParse(request.body)
-  if(!result.success)
-   return response.status(400).json({
-  error: {
-    status: 400,
-    message: 'Dados invalido',
-    fields: toFieldErrors(result.error)
+  if (!result.success) {
+    return response.status(400).json({
+      error: {
+        status: 400,
+        message: 'Dados inválidos',
+        fields: toFieldErrors(result.error)
+      }
+    });
+  }
 
-  }})
   const invoice = await insertInvoice(result.data);
-
-  if (!invoice) response.status(404).json({
-    error: {
-      status: 404,
-      message: 'Fatura não encontrada.'
-    }
-  });
 
   response.status(201).json(invoice);
 });
