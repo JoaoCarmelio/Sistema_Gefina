@@ -18,23 +18,22 @@ export interface Invoice {
 }
 
 export interface InvoiceInput {
-  customerId: number,
-  amount: number,
-  status: InvoiceStatus,
-  issueDate: string,
+  customerId: number;
+  amount: number;
+  status: InvoiceStatus;
+  issueDate: string;
   dueDate: string;
 }
 
 export interface InvoiceFieldErrors {
-  customerId?: string,
-  amount?: string,
-  status?: string,
-  issuDate?: string
-  dueDate?: string,
-
+  customerId?: string;
+  amount?: string;
+  status?: string;
+  issuDate?: string;
+  dueDate?: string;
 }
 
 export interface ApiFailure {
   message: string;
-  fields: InvoiceFieldErrors; 
+  fields: InvoiceFieldErrors;
 }
