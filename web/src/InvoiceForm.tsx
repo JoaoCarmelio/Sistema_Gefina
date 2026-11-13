@@ -30,12 +30,14 @@ export default function InvoiceForm(props: InvoiceFormProps) {
     !props.invoice ? undefined : String(props.invoice.customer.id),
   );
   const [amount, setAmount] = useState(
-    !props.invoice ? '' : (props.invoice.amount / 100).toFixed(2),
+    !props.invoice
+      ? undefined
+      : (props.invoice.amount / 100).toFixed(2),
   );
   const [status, setStatus] = useState<InvoiceStatus>(
     !props.invoice ? 'pending' : props.invoice.status,
   );
-  const [issueDate, setIssuDate] = useState(
+  const [issueDate, setIssueDate] = useState(
     !props.invoice ? '' : props.invoice.issueDate,
   );
   const [dueDate, setDueDate] = useState(
@@ -113,7 +115,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
           type="date"
           required
           value={issueDate}
-          onChange={(event) => setIssuDate(event.target.value)}
+          onChange={(event) => setIssueDate(event.target.value)}
         />
       </div>
 
@@ -135,9 +137,7 @@ export default function InvoiceForm(props: InvoiceFormProps) {
         <div className="field"></div>
       </div>
 
-      {!props.error ? null : (
-        <p className="form-error">{props.error}</p>
-      )}
+     
       <div className="form-actions">
         {!props.invoice ? null : (
           <button
@@ -205,8 +205,8 @@ export default function InvoiceForm(props: InvoiceFormProps) {
       {props.fieldErrors.status && (
         <p className="form-error">{props.fieldErrors.status}</p>
       )}
-      {props.fieldErrors.issuDate && (
-        <p className="form-error">{props.fieldErrors.issuDate}</p>
+      {props.fieldErrors.issueDate && (
+        <p className="form-error">{props.fieldErrors.issueDate}</p>
       )}
       {props.fieldErrors.dueDate && (
         <p className="form-error">{props.fieldErrors.dueDate}</p>
