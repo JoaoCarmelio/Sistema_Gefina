@@ -181,7 +181,7 @@ describe('InvoiceForm', () => {
     expect(screen.getByText('Falha ao criar fatura.')).toBeDefined();
   });
 
-  it('preenche os campos com a fatura recebida', () => {
+  it('preenche os campos com a fatura recebida.', () => {
     render(
       <InvoiceForm
         invoice={{
@@ -242,7 +242,7 @@ describe('InvoiceForm', () => {
     ).toBeDefined();
   });
 
-  it('devolve o cancelamento sem enviar o formulário', async () => {
+  it('devolve o cancelamento sem enviar o formulário.', async () => {
     const onCancel = vi.fn();
     const onSubmit = vi.fn();
 
