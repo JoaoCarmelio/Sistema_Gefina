@@ -29,7 +29,7 @@ export interface InvoiceFieldErrors {
   customerId?: string;
   amount?: string;
   status?: string;
-  issuDate?: string;
+  issueDate?: string;
   dueDate?: string;
 }
 
