@@ -42,7 +42,7 @@ export default function DashboardPage() {
     <>
       <h1>Painel Inicial</h1>
 
-      <div className="summary-cards">
+      <div className="flex gap-4">
         <SummaryCard
           label="Total recebido:"
           value={formatCurrency(dashboard.totals.paid)}
@@ -61,7 +61,7 @@ export default function DashboardPage() {
         />
       </div>
 
-      <div className="summary-tables">
+      <div className="flex gap-6 mt-7">
         <InvoiceSummaryTable
           title="Faturas recentes"
           dateLabel="Emissão"

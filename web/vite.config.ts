@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
@@ -15,7 +16,5 @@ export default defineConfig({
     setupFiles: ['./src/test.setup.ts'],
   },
 });
-function tailwindcss(): import("vite").PluginOption {
-  throw new Error('Function not implemented.');
-}
+
 

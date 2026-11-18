@@ -12,24 +12,25 @@ interface InvoiceRowProps {
 }
 
 export default function InvoiceRow(props: InvoiceRowProps) {
+  const base = 'p-3 border b border-border';
   return (
     <tr>
-      <td>{props.invoice.customer.name}</td>
-      <td className="numeric">
+      <td className={base}>{props.invoice.customer.name}</td>
+      <td className={`${base} tabular-ms`}>
         {formatCurrency(props.invoice.amount)}
       </td>
-      <td className="numeric numeric-date">
+      <td className={`${base} tabular-nums`}>
         {formatDate(props.invoice.issueDate)}
       </td>
-      <td className="numeric numeric-date">
+      <td className={`${base} text-center tabular-nums`}>
         {formatDate(props.invoice.dueDate)}
       </td>
-      <td className={situationClass(props.invoice.situation)}>
+      <td className={`${base} {situationClass(props.invoice.situation)}`}>
         {situationLabel(props.invoice.situation)}
       </td>
       <td className="td-button">
         <button
-          className="button-secundary"
+          className="px-4 py-2 border border-border rounded-control cursor-pointer hover:bg-surface-raised "
           type="button"
           onClick={() => props.edit(props.invoice)}
         >
@@ -39,3 +40,4 @@ export default function InvoiceRow(props: InvoiceRowProps) {
     </tr>
   );
 }
+

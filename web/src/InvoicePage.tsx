@@ -133,18 +133,18 @@ export default function InvoicePage() {
 
   return (
     <>
-      <header className="page-header">
-        <h1>Faturas</h1>
+      <header className="flex justify-between items-center mb-6 px-3">
+        <h1 className='text-xl font-semibold'>Faturas</h1>
         <button
           type="button"
-          className="button-primary"
+          className="bg-primary px-4 py-2 rounded-control cursor-pointer"
           onClick={() => openModal(null)}
         >
           Nova fatura
         </button>
       </header>
 
-      <div className="panel">
+      <div className="p-4 bg-surface border border-border rounded-surface">
         <InvoiceTable invoices={invoices} edit={openModal} />
       </div>
 
