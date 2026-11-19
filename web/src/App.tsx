@@ -7,7 +7,7 @@ export default function App() {
 
   function apply(state: boolean): string {
     
-    const base = 'block px-3 py-2 hover:bg-surface-raised hover:text-text rounded-control'
+    const base = 'block px-3 py-2 hover:bg-surface-raised hover:text-text rounded-control focus-visible:outline-2 focus-visible:outline-primary'
 
     if(state) return `${base} text-yellow-500`;
 
