@@ -127,9 +127,9 @@ export default function InvoicePage() {
     setBusy(false);
   }
 
-  if (loading) return <p>Carregando faturas...</p>;
+  if (loading) return <p className='text-sm text-text-muted'>Carregando faturas...</p>;
 
-  if (error) return <p>{error}</p>;
+  if (error) return <p className='text-overdue'>{error}</p>;
 
   return (
     <>
@@ -137,7 +137,7 @@ export default function InvoicePage() {
         <h1 className='text-xl font-semibold'>Faturas</h1>
         <button
           type="button"
-          className="bg-primary px-4 py-2 rounded-control cursor-pointer"
+          className="bg-primary px-4 py-2 rounded-control cursor-pointer focus-visible:outline-2 focus-visible:outline-primary"
           onClick={() => openModal(null)}
         >
           Nova fatura
@@ -149,7 +149,7 @@ export default function InvoicePage() {
       </div>
 
       <dialog
-        className="invoice-modal"
+        className="w-xl m-auto p-6 rounded-dialog bg-surface backdrop: background-backdrop border border-border text-text focus-visible:outline-2 focus-visible:outline-primary "
         ref={dialogRef}
         onClose={() => {
           setDialogContent(false);
