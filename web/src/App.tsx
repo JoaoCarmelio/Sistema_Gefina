@@ -18,16 +18,25 @@ export default function App() {
   return (
     <BrowserRouter>
       <aside className="fixed inset-y-0 left-0 w-60 flex flex-col gap-8 p-6 border-r border-border bg-surface">
-        <header className="text-xl font-bold uppercase text-center">Gefina</header>
+        <header className="text-xl font-bold uppercase text-center">
+          Gefina
+        </header>
         <nav className="menu">
           <ul className="flex flex-col gap-1">
             <li>
-              <NavLink end className={({ isActive }) => apply(isActive)} to="/">
+              <NavLink
+                end
+                className={({ isActive }) => apply(isActive)}
+                to="/"
+              >
                 Painel Inicial
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => apply(isActive)} to="/faturas">
+              <NavLink
+                className={({ isActive }) => apply(isActive)}
+                to="/faturas"
+              >
                 Faturas
               </NavLink>
             </li>

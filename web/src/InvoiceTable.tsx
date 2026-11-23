@@ -7,10 +7,11 @@ interface InvoiceTableProps {
 }
 
 export default function InvoiceTable(props: InvoiceTableProps) {
-  const base = 'text-sm font-medium p-3 border-b text-text-muted border-b border-border';
+  const base =
+    'text-sm font-medium p-3 border-b text-text-muted border-b border-border';
 
   return (
-    <table className='w-full border-collapse'>
+    <table className="w-full border-collapse">
       <thead>
         <tr>
           <th className={`${base} text-left`}>Cliente</th>
