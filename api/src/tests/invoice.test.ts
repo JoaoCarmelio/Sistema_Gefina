@@ -1,8 +1,8 @@
 import supertest from 'supertest';
 import { afterAll, beforeEach, describe, expect, it } from 'vitest';
-import app from './app.ts';
+import app from '../app.ts';
 
-import prisma from './prisma.ts';
+import prisma from '../prisma.ts';
 
 const user = {
   id: 0,

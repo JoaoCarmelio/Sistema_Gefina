@@ -1,6 +1,17 @@
-import type { InvoiceSituation } from './invoiceType.ts';
+import type { InvoiceSituation } from './types/invoiceType.ts';
 
 export function situationLabel(situation: InvoiceSituation) {
+  switch (situation) {
+    case 'paid':
+      return 'Pago';
+    case 'pending':
+      return 'Pendente';
+    case 'overdue':
+      return 'Atrasado';
+  }
+}
+
+export function situationClass(situation: InvoiceSituation) {
   switch (situation) {
     case 'paid':
       return 'text-paid';
@@ -8,17 +19,6 @@ export function situationLabel(situation: InvoiceSituation) {
       return 'text-pending';
     case 'overdue':
       return 'text-overdue';
-  }
-}
-
-export function situationClass(situation: InvoiceSituation) {
-  switch (situation) {
-    case 'paid':
-      return 'situation-paid';
-    case 'pending':
-      return 'situation-pending';
-    case 'overdue':
-      return 'situation-overdue';
   }
 }
 
