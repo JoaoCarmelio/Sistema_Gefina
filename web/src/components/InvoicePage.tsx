@@ -97,8 +97,7 @@ export default function InvoicePage() {
       } else {
         await updateInvoice(target.id, datas);
       }
-      await createInvoice(datas);
-
+    
       closeModal();
       await refresh();
     } catch (error) {

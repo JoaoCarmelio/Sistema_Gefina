@@ -2,7 +2,7 @@ import type {
   ApiFailure,
   Invoice,
   InvoiceInput,
-} from './invoiceType.ts';
+} from './types/invoiceType.ts';
 
 export async function getAllInvoice(): Promise<Invoice[]> {
   const response = await fetch('/api/invoices');
@@ -13,7 +13,7 @@ export async function getAllInvoice(): Promise<Invoice[]> {
 }
 
 export async function getInvoiceById(id: number): Promise<Invoice> {
-  const response = await fetch(`/api/invoice/${id}`);
+  const response = await fetch(`/api/invoices/${id}`);
 
   if (!response.ok) throw new Error('Falha ao buscar fatura.');
 
@@ -34,7 +34,7 @@ export async function createInvoice(
 
     return {
       message: body.error.message,
-      fields: body.error.field,
+      fields: body.error.fields,
     };
   }
 
@@ -50,7 +50,7 @@ export async function updateInvoice(
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(datas),
   });
-  ('');
+  
 
   if (!response.ok) throw new Error('Falha ao editar fatura.');
 }
