@@ -30,7 +30,7 @@ export default function InvoiceRow(props: InvoiceRowProps) {
       >
         {situationLabel(props.invoice.situation)}
       </td>
-      <td className="td-button">
+      <td className="pl-6 pr-2">
         <button
           className="px-4 py-2 border border-border rounded-control cursor-pointer hover:bg-surface-raised
            focus-visible:outline-2 focus-visible:outline-primary "

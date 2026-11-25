@@ -19,7 +19,7 @@ export default function InvoiceTable(props: InvoiceTableProps) {
           <th className={base}>Data de Emissão</th>
           <th className={base}>Data de Vencimento</th>
           <th className={base}>Situação</th>
-          <th className={base}></th>
+          <th className='p-3'></th>
         </tr>
       </thead>
       <tbody>
